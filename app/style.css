@@ -1,0 +1,29 @@
+.topic-button {
+  margin-top: 20px;
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+.topic-card {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-bottom: 30px;
+}
+
+.stan-background {
+  background-color: #faf3ea;
+  display: flex;
+  height: 100%;
+}
+
+.stan-side-box {
+  margin-top: 50px;
+  margin-left: 20px;
+}
+
+.stan-popularlist-box {
+  margin-top: 20px;
+}

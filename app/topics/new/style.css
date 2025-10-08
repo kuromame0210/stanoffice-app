@@ -1,0 +1,174 @@
+.new-topic-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f5f5f5;
+  min-height: 100vh;
+}
+
+.new-topic-main {
+  background: white;
+  border-radius: 8px;
+  padding: 32px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.new-topic-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0 0 24px 0;
+  color: #333;
+}
+
+.new-topic-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.new-topic-error {
+  background: #fee;
+  color: #c00;
+  padding: 12px;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+}
+
+.required {
+  color: #c00;
+}
+
+.form-input,
+.form-textarea {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  font-family: inherit;
+  transition: border-color 0.2s;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: #39a9bf;
+}
+
+.form-input:disabled,
+.form-textarea:disabled {
+  background: #f5f5f5;
+  cursor: not-allowed;
+}
+
+.form-hint {
+  font-size: 12px;
+  color: #999;
+  margin: 0;
+}
+
+.image-preview {
+  margin-top: 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 8px;
+  background: #f9f9f9;
+}
+
+.image-preview img {
+  max-width: 100%;
+  max-height: 300px;
+  display: block;
+  margin: 0 auto;
+  border-radius: 4px;
+}
+
+.form-checkboxes {
+  display: flex;
+  gap: 24px;
+}
+
+.form-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.form-checkbox input[type='checkbox'] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.form-checkbox input[type='checkbox']:disabled {
+  cursor: not-allowed;
+}
+
+.form-checkbox label {
+  font-size: 14px;
+  color: #333;
+  cursor: pointer;
+}
+
+.form-notice {
+  background: #f0f8ff;
+  padding: 12px;
+  border-radius: 4px;
+  border-left: 4px solid #39a9bf;
+}
+
+.form-notice p {
+  margin: 0;
+  font-size: 14px;
+  color: #666;
+}
+
+.form-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: flex-end;
+}
+
+.form-button {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.form-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.form-button-cancel {
+  background: #f5f5f5;
+  color: #666;
+}
+
+.form-button-cancel:hover:not(:disabled) {
+  background: #e0e0e0;
+}
+
+.form-button-submit {
+  background: #39a9bf;
+  color: white;
+}
+
+.form-button-submit:hover:not(:disabled) {
+  background: #2d8a9e;
+}

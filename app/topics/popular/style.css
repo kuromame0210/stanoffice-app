@@ -1,0 +1,37 @@
+.popular-topics-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f5f5f5;
+  min-height: 100vh;
+}
+
+.popular-topics-header {
+  margin-bottom: 20px;
+}
+
+.back-link {
+  display: inline-block;
+  color: #39a9bf;
+  text-decoration: none;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+
+.popular-topics-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin: 0;
+}
+
+.popular-topics-main {
+  background: white;
+  border-radius: 8px;
+  padding: 24px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}

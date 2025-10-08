@@ -1,0 +1,58 @@
+.topic-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.topic-card-link:hover .topic-title {
+  text-decoration: underline;
+}
+
+.topic-card-box {
+  display: flex;
+  border-bottom: 1px solid gray;
+  margin-top: 12px;
+}
+.topic-img-box {
+  margin-top: 20px;
+}
+
+.topic-img {
+  width: 60px;
+  height: 60px;
+}
+
+.comment-box {
+  display: flex;
+  gap: 16px;
+  flex-shrink: 0;
+  height: 25px;
+}
+
+.comment-sum {
+  font-size: 14px;
+  color: gray;
+}
+
+.seconds-ago {
+  font-size: 14px;
+  color: gray;
+}
+
+.topic-title {
+  text-align: left;
+  font-size: 20px;
+  width: 100%;
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: #39a9bf;
+}
+
+.latest-topic {
+  text-align: center;
+  font-size: 14px;
+  border-bottom: 1px dashed gray;
+  height: 30px;
+  font-weight: bold;
+  color: gray;
+}
