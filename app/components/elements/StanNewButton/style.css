@@ -4,17 +4,29 @@
 }
 
 .new-button {
-  width: 300px;
+  width: 100%;
+  max-width: 300px;
   height: 60px;
-  background-color: #ff787f;
+  background-color: var(--accent-orange);
   color: white;
-  border-radius: 5px;
+  border-radius: 8px;
   font-weight: bold;
   border: none;
   cursor: pointer;
-  transition: background-color 0.2s;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .new-button:hover {
-  background-color: #ff5a62;
+  background-color: #e55a2b;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 768px) {
+  .new-button {
+    height: 50px;
+    font-size: 14px;
+    border-radius: 6px;
+  }
 }

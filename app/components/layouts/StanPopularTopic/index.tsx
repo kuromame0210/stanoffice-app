@@ -16,21 +16,12 @@ export const StanPopularTopic = ({ kindTitle, topics }: StanPopularTopicType) =>
         {topics.map((topic) => {
           return (
             <Link href={`/topics/${topic.id}`} key={topic.id} className='topic-card-link'>
-              <div className='topic-card-box'>
-                <div className='topic-img-box'>
-                  {topic.image_url ? (
-                    <img src={topic.image_url} alt={topic.title} className='topic-img' />
-                  ) : (
-                    <p className='topic-img'>写真</p>
-                  )}
+              <div className='populartopic-item'>
+                <div>
+                  <p className='populartopic-title'>{topic.title}</p>
                 </div>
                 <div>
-                  <div>
-                    <p className='populartopic-title'>{topic.title}</p>
-                  </div>
-                  <div>
-                    <p className='populartopic-comment-sum'>{topic.comment_count}コメント</p>
-                  </div>
+                  <p className='populartopic-comment-sum'>{topic.comment_count}コメント</p>
                 </div>
               </div>
             </Link>

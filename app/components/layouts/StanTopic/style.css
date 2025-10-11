@@ -10,16 +10,27 @@
 
 .topic-card-box {
   display: flex;
-  border-bottom: 1px solid gray;
-  margin-top: 12px;
+  border-bottom: 1px solid var(--border-light);
+  margin-top: 16px;
+  padding-bottom: 16px;
+  gap: 16px;
 }
+
 .topic-img-box {
-  margin-top: 20px;
+  margin-top: 4px;
+  flex-shrink: 0;
 }
 
 .topic-img {
   width: 60px;
   height: 60px;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.topic-content {
+  flex: 1;
+  min-width: 0;
 }
 
 .comment-box {
@@ -27,32 +38,36 @@
   gap: 16px;
   flex-shrink: 0;
   height: 25px;
+  margin-top: 8px;
 }
 
 .comment-sum {
   font-size: 14px;
-  color: gray;
+  color: var(--text-black);
 }
 
 .seconds-ago {
   font-size: 14px;
-  color: gray;
+  color: var(--text-black);
 }
 
 .topic-title {
   text-align: left;
   font-size: 20px;
   width: 100%;
-  margin-bottom: 10px;
-  font-weight: bold;
-  color: #39a9bf;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: var(--text-pink);
+  line-height: 1.4;
 }
 
 .latest-topic {
   text-align: center;
-  font-size: 14px;
-  border-bottom: 1px dashed gray;
-  height: 30px;
-  font-weight: bold;
-  color: gray;
+  font-size: 20px;
+  border-bottom: 1px dashed var(--border-light);
+  height: 48px;
+  line-height: 48px;
+  font-weight: 600;
+  color: var(--text-black);
+  margin-bottom: 20px;
 }

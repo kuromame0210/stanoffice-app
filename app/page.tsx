@@ -1,4 +1,3 @@
-import { StanNewButton } from './components/elements/StanNewButton';
 import { StanHeader } from './components/layouts/StanHeader';
 import { StanPopularTopic } from './components/layouts/StanPopularTopic';
 import { StanTopicCard } from './components/layouts/StanTopicCard';
@@ -22,9 +21,6 @@ export default async function StanTopPage() {
           <TopicTabs latestTopics={latestTopics} popularTopics={dailyPopularTopics} />
         </StanTopicCard>
         <div className='stan-side-box'>
-          <div>
-            <StanNewButton />
-          </div>
           <div className='stan-popularlist-box'>
             <StanTopicCard popularList>
               <StanPopularTopic kindTitle='一週間の人気トピック' topics={weeklyPopularTopics} />

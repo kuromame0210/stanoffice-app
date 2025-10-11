@@ -1,12 +1,67 @@
 .stan-header {
   width: 100%;
-  height: 75px;
-  background-color: #ff969f;
+  height: 70px;
+  background-color: var(--bg-white);
+  border-bottom: 1px solid var(--border-light);
 }
 
-.stan-header-title {
-  font-size: 40px;
+.stan-header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.stan-header-logo {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: var(--text-black);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.stan-header-logo:hover {
+  color: var(--text-pink);
+}
+
+.stan-header-button {
+  background-color: var(--accent-orange);
   color: white;
-  text-align: center;
-  height: 75px;
+  padding: 10px 20px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 14px;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.stan-header-button:hover {
+  background-color: #e55a2b;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 768px) {
+  .stan-header {
+    height: 60px;
+  }
+  
+  .stan-header-container {
+    padding: 0 15px;
+  }
+  
+  .stan-header-logo {
+    font-size: 20px;
+  }
+  
+  .stan-header-button {
+    padding: 8px 16px;
+    font-size: 13px;
+  }
 }

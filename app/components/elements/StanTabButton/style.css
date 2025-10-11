@@ -1,13 +1,48 @@
 .today-topic {
-  width: 210px;
-  height: 45px;
-  background-color: #ff969f;
+  width: 100%;
+  max-width: 210px;
+  height: 48px;
+  background-color: var(--text-pink);
   color: white;
+  flex: 1;
+  border-radius: 8px;
+  border: none;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.today-topic:hover {
+  background-color: #ff7a85;
+  transform: translateY(-1px);
 }
 
 .new-topic {
-  width: 210px;
-  height: 45px;
-  background-color: #a6d8f4;
+  width: 100%;
+  max-width: 210px;
+  height: 48px;
+  background-color: var(--text-black);
   color: white;
+  flex: 1;
+  border-radius: 8px;
+  border: none;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.new-topic:hover {
+  background-color: #1a1a1a;
+  transform: translateY(-1px);
+}
+
+@media (max-width: 768px) {
+  .today-topic,
+  .new-topic {
+    max-width: none;
+    height: 40px;
+    font-size: 14px;
+  }
 }

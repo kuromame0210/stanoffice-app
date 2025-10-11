@@ -1,29 +1,70 @@
 .topic-button {
-  margin-top: 20px;
+  margin-top: 32px;
   display: flex;
-  gap: 15px;
+  gap: 16px;
   justify-content: center;
 }
 
 .topic-card {
-  margin-top: 20px;
-  margin-bottom: 20px;
-  padding-left: 30px;
-  padding-right: 30px;
-  padding-bottom: 30px;
+  margin-top: 32px;
+  margin-bottom: 32px;
+  padding: 32px;
 }
 
 .stan-background {
-  background-color: #faf3ea;
+  background-color: var(--bg-white);
   display: flex;
-  height: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px 20px;
+  min-height: calc(100vh - 70px);
+  gap: 32px;
 }
 
 .stan-side-box {
-  margin-top: 50px;
-  margin-left: 20px;
+  margin-top: 0;
+  flex-shrink: 0;
+  width: 300px;
 }
 
 .stan-popularlist-box {
-  margin-top: 20px;
+  margin-top: 32px;
+}
+
+/* レスポンシブブレイクポイント */
+@media (max-width: 1024px) {
+  .stan-background {
+    flex-direction: column;
+    gap: 24px;
+    padding: 24px 20px;
+  }
+  
+  .stan-side-box {
+    margin-top: 0;
+    order: -1;
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .stan-background {
+    padding: 20px 15px;
+    gap: 20px;
+  }
+  
+  .topic-button {
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 24px;
+  }
+  
+  .topic-card {
+    padding: 24px 20px;
+    margin-top: 24px;
+    margin-bottom: 24px;
+  }
+  
+  .stan-popularlist-box {
+    margin-top: 24px;
+  }
 }

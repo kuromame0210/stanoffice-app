@@ -37,13 +37,13 @@ export const StanTopic = ({ topics }: StanTopicProps) => {
                   <p className='topic-img'>写真</p>
                 )}
               </div>
-              <div>
+              <div className='topic-content'>
+                <div>
+                  <p className='topic-title'>{topic.title}</p>
+                </div>
                 <div className='comment-box'>
                   <p className='comment-sum'>{topic.comment_count}コメント</p>
                   <p className='seconds-ago'>{getTimeAgo(topic.created_at)}</p>
-                </div>
-                <div>
-                  <p className='topic-title'>{topic.title}</p>
                 </div>
               </div>
             </div>
