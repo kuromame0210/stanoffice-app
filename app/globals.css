@@ -1,17 +1,36 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #fafafa;
+  --foreground: #2d2d2d;
   
-  /* StanOffice Brand Colors */
-  --accent-orange: #ff6b35;
-  --text-pink: #ff969f;
-  --text-black: #2c2c2c;
-  --header-black: #1a1a1a;
-  --bg-white: #ffffff;
+  /* Simple Orange Accent */
+  --primary-orange: #ff6348;
+  --primary-orange-hover: #e55a2b;
+  
+  /* Light Theme Colors */
+  --text-on-light: #2d2d2d;
+  --text-on-dark: #ffffff;
+  --text-gray: #666666;
   --bg-light: #fafafa;
-  --border-light: #e9ecef;
+  --bg-white: #ffffff;
+  --bg-dark: #1a1a1a;
+  --border-light: #e0e0e0;
+  --border-gray: #333333;
+  
+  /* レスポンシブブレイクポイント */
+  --breakpoint-mobile: 480px;
+  --breakpoint-tablet: 768px;
+  --breakpoint-desktop: 1024px;
+  --breakpoint-wide: 1440px;
+  
+  /* 動的サイズ変数 */
+  --container-padding: clamp(15px, 4vw, 32px);
+  --sidebar-width: clamp(280px, 25vw, 320px);
+  --content-gap: clamp(16px, 3vw, 32px);
+  --header-height: clamp(60px, 12vw, 80px);
+  --card-padding: clamp(20px, 4vw, 32px);
+  --card-radius: clamp(6px, 1vw, 12px);
 }
 
 @theme inline {
@@ -23,13 +42,63 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #1a1a1a;
+    --foreground: #ffffff;
+    --bg-light: #1a1a1a;
+    --bg-white: #2a2a2a;
+    --bg-dark: #0d0d0d;
+    --text-on-light: #ffffff;
+    --text-on-dark: #2d2d2d;
+    --border-light: #333333;
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Noto Sans JP', 'Hiragino Sans', 'Yu Gothic UI', Arial, sans-serif;
+  font-weight: 500;
+}
+
+/* Korean-style typography */
+.headline-large {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--foreground);
+}
+
+.headline-medium {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--foreground);
+}
+
+/* Animation keyframes */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+@keyframes bounce {
+  0%, 20%, 53%, 80%, 100% {
+    transform: translate3d(0, 0, 0);
+  }
+  40%, 43% {
+    transform: translate3d(0, -5px, 0);
+  }
+  70% {
+    transform: translate3d(0, -3px, 0);
+  }
+  90% {
+    transform: translate3d(0, -1px, 0);
+  }
+}
+
+.attention-button {
+  animation: pulse 2s infinite;
+}
+
+.bounce-on-hover:hover {
+  animation: bounce 1s;
 }

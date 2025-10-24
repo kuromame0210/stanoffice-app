@@ -1,7 +1,7 @@
 'use client';
 
 import { createComment } from '@/app/actions/comments';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import './style.css';
 
 type CommentFormProps = {
@@ -11,6 +11,7 @@ type CommentFormProps = {
 export const CommentForm = ({ topicId }: CommentFormProps) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const formRef = useRef<HTMLFormElement>(null);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -22,7 +23,7 @@ export const CommentForm = ({ topicId }: CommentFormProps) => {
     try {
       await createComment(topicId, formData);
       // フォームをリセット
-      e.currentTarget.reset();
+      formRef.current?.reset();
     } catch (err) {
       setError(err instanceof Error ? err.message : 'コメント投稿に失敗しました');
     } finally {
@@ -33,7 +34,7 @@ export const CommentForm = ({ topicId }: CommentFormProps) => {
   return (
     <div className='comment-form-container'>
       <h3 className='comment-form-title'>コメントを投稿</h3>
-      <form onSubmit={handleSubmit} className='comment-form'>
+      <form ref={formRef} onSubmit={handleSubmit} className='comment-form'>
         {error && <div className='comment-form-error'>{error}</div>}
 
         <div className='comment-form-group'>

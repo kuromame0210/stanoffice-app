@@ -3,6 +3,7 @@
 import { createTopic } from '@/app/actions/topics';
 import { uploadTopicImage } from '@/app/lib/supabase/storage';
 import { StanHeader } from '@/app/components/layouts/StanHeader';
+import { ImageUpload } from '@/app/components/features/ImageUpload';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import './style.css';
@@ -14,16 +15,14 @@ export default function NewTopicPage() {
   const [imagePreview, setImagePreview] = useState<string | null>(null);
   const [imageFile, setImageFile] = useState<File | null>(null);
 
-  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (file) {
-      setImageFile(file);
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setImagePreview(reader.result as string);
-      };
-      reader.readAsDataURL(file);
-    }
+  const handleImageSelect = (file: File, previewUrl: string) => {
+    setImageFile(file);
+    setImagePreview(previewUrl);
+  };
+
+  const handleImageRemove = () => {
+    setImageFile(null);
+    setImagePreview(null);
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -91,24 +90,15 @@ export default function NewTopicPage() {
             </div>
 
             <div className='form-group'>
-              <label htmlFor='image_file' className='form-label'>
+              <label className='form-label'>
                 画像（任意）
               </label>
-              <input
-                id='image_file'
-                name='image_file'
-                type='file'
-                accept='image/*'
-                className='form-input'
-                onChange={handleImageChange}
+              <ImageUpload
+                onImageSelect={handleImageSelect}
+                onImageRemove={handleImageRemove}
+                currentPreview={imagePreview}
                 disabled={isSubmitting}
               />
-              <p className='form-hint'>JPEG, PNG, GIF形式の画像をアップロードできます（最大5MB）</p>
-              {imagePreview && (
-                <div className='image-preview'>
-                  <img src={imagePreview} alt='プレビュー' />
-                </div>
-              )}
             </div>
 
             <div className='form-group'>

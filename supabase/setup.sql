@@ -52,8 +52,8 @@ CREATE TABLE IF NOT EXISTS stanoffice_topics (
   view_count INTEGER DEFAULT 0,
   comment_count INTEGER DEFAULT 0,
 
-  -- 承認ステータス
-  status TEXT DEFAULT 'pending' CHECK (status IN ('pending', 'approved', 'rejected')),
+  -- 承認ステータス (test: 開発用テストデータ)
+  status TEXT DEFAULT 'pending' CHECK (status IN ('pending', 'approved', 'rejected', 'test')),
 
   -- タイムスタンプ
   created_at TIMESTAMPTZ DEFAULT NOW(),
@@ -290,13 +290,20 @@ CREATE POLICY "Anyone can insert comments on approved topics"
 -- 注意: 既にデータがある場合は重複エラーになる可能性があります
 -- 初回セットアップ時のみ実行してください
 
--- テスト用トピック
+-- テスト用トピック (approved: 承認済み)
 INSERT INTO stanoffice_topics (title, body, author_name, is_anonymous, status) VALUES
   ('テストトピック1', 'これはテストトピックです。コメントをお願いします！', '匿名', TRUE, 'approved'),
   ('テストトピック2', '皆さんはどう思いますか？', '太郎', FALSE, 'approved'),
-  ('テストトピック3', 'この話題について語りましょう', NULL, TRUE, 'approved'),
-  ('韓国ドラマについて語ろう', '最近ハマっている韓国ドラマについて教えてください！', '花子', FALSE, 'approved'),
-  ('おすすめのカフェ', '東京でおすすめのカフェを教えてください', NULL, TRUE, 'approved')
+  ('韓国ドラマについて語ろう', '最近ハマっている韓国ドラマについて教えてください！', '花子', FALSE, 'approved')
+ON CONFLICT DO NOTHING;
+
+-- 開発用テストデータ (test: 開発時のみ表示)
+INSERT INTO stanoffice_topics (title, body, author_name, is_anonymous, status) VALUES
+  ('【開発用】最新のK-POPについて', 'NewJeansの新曲どう思いますか？', 'K-POPファン', FALSE, 'test'),
+  ('【開発用】今日のランチ', '渋谷で美味しいランチ食べました！', NULL, TRUE, 'test'),
+  ('【開発用】週末の予定', 'みなさんの週末の過ごし方を教えてください', '週末族', FALSE, 'test'),
+  ('【開発用】おすすめの映画', '最近見た映画でおすすめを教えて！', NULL, TRUE, 'test'),
+  ('【開発用】勉強方法について', 'プログラミングの効率的な学習方法は？', 'エンジニア志望', FALSE, 'test')
 ON CONFLICT DO NOTHING;
 
 -- テスト用コメント

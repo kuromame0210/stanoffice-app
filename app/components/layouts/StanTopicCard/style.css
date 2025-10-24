@@ -1,44 +1,39 @@
 .stan-topic-card {
-  background-color: var(--bg-white);
+  background: var(--bg-white);
   width: 100%;
-  max-width: 680px;
+  max-width: none;
   height: auto;
-  margin-top: 50px;
-  margin-bottom: 50px;
-  flex: 1;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-top: clamp(20px, 4vw, 50px);
+  margin-bottom: clamp(20px, 4vw, 50px);
+  border-radius: var(--card-radius);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  border: 1px solid var(--border-light);
+  transition: box-shadow 0.2s ease;
+}
+
+.stan-topic-card:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
 .stan-popularlist-card {
-  background-color: var(--bg-white);
+  background: var(--bg-white);
   width: 100%;
-  max-width: 300px;
-  height: 550px;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  max-width: none;
+  height: auto;
+  min-height: 300px;
+  border-radius: var(--card-radius);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  border: 1px solid var(--border-light);
+  transition: box-shadow 0.2s ease;
 }
 
-@media (max-width: 1024px) {
-  .stan-topic-card {
-    margin-top: 20px;
-    margin-bottom: 20px;
-  }
-  
-  .stan-popularlist-card {
-    height: auto;
-    min-height: 300px;
-  }
+.stan-popularlist-card:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
-@media (max-width: 768px) {
-  .stan-topic-card {
-    margin-top: 15px;
-    margin-bottom: 15px;
-    border-radius: 6px;
-  }
-  
+/* タブレット以上でサイドバーカードの高さを設定 */
+@media (min-width: 768px) {
   .stan-popularlist-card {
-    border-radius: 6px;
+    height: 550px;
   }
 }

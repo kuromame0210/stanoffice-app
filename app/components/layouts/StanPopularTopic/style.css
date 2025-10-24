@@ -3,13 +3,13 @@
 }
 
 .stan-populartopic-kind {
-  color: var(--text-pink);
-  font-size: 18px;
-  font-weight: 600;
+  font-size: 20px;
+  font-weight: 800;
   height: 44px;
   line-height: 44px;
   border-bottom: 1px dashed var(--border-light);
   margin-bottom: 20px;
+  color: var(--primary-orange);
 }
 
 .populartopic-item {
@@ -25,7 +25,7 @@
 
 .populartopic-comment-sum {
   font-size: 14px;
-  color: var(--text-black);
+  color: var(--text-gray);
   margin-top: 4px;
   font-weight: 400;
 }
@@ -36,7 +36,7 @@
   font-weight: 500;
   width: 100%;
   margin-bottom: 6px;
-  color: var(--text-black);
+  color: var(--text-on-light);
   line-height: 1.4;
 }
 
@@ -46,7 +46,7 @@
   font-size: 12px;
   text-align: right;
   width: 100%;
-  color: var(--accent-orange);
+  color: var(--primary-orange);
   text-decoration: none;
   cursor: pointer;
   font-weight: 500;

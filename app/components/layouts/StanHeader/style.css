@@ -1,8 +1,12 @@
 .stan-header {
   width: 100%;
-  height: 70px;
-  background-color: var(--bg-white);
-  border-bottom: 1px solid var(--border-light);
+  height: var(--header-height);
+  background: var(--bg-dark);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  border-bottom: 1px solid var(--border-gray);
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 .stan-header-container {
@@ -16,52 +20,38 @@
 }
 
 .stan-header-logo {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  font-size: 24px;
-  font-weight: 600;
+  font-family: 'Noto Sans JP', 'Hiragino Sans', system-ui, sans-serif;
+  font-size: clamp(20px, 5vw, 28px);
+  font-weight: 800;
   letter-spacing: 0.5px;
-  color: var(--text-black);
+  color: var(--text-on-dark);
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
 .stan-header-logo:hover {
-  color: var(--text-pink);
+  color: var(--primary-orange);
 }
 
 .stan-header-button {
-  background-color: var(--accent-orange);
-  color: white;
-  padding: 10px 20px;
+  background: var(--primary-orange);
+  color: var(--text-on-dark);
+  border: 2px solid var(--primary-orange);
+  padding: clamp(8px, 2vw, 10px) clamp(16px, 3vw, 20px);
   border-radius: 6px;
   text-decoration: none;
-  font-weight: 500;
-  font-size: 14px;
-  transition: all 0.2s ease;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-weight: 600;
+  font-size: clamp(12px, 3vw, 14px);
+  transition: background-color 0.2s ease;
 }
 
 .stan-header-button:hover {
-  background-color: #e55a2b;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  background: var(--primary-orange-hover);
+  border-color: var(--primary-orange-hover);
 }
 
-@media (max-width: 768px) {
-  .stan-header {
-    height: 60px;
-  }
-  
+@media (max-width: 480px) {
   .stan-header-container {
     padding: 0 15px;
-  }
-  
-  .stan-header-logo {
-    font-size: 20px;
-  }
-  
-  .stan-header-button {
-    padding: 8px 16px;
-    font-size: 13px;
   }
 }

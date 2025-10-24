@@ -1,5 +1,6 @@
 import { Topic } from '@/app/types/database.types';
 import Link from 'next/link';
+import { VoteButtons } from '@/app/components/features/VoteButtons';
 import './style.css';
 
 type StanTopicProps = {
@@ -28,26 +29,37 @@ export const StanTopic = ({ topics }: StanTopicProps) => {
       <div className='latest-topic'>最新のトピック</div>
       {topics.map((topic) => {
         return (
-          <Link href={`/topics/${topic.id}`} key={topic.id} className='topic-card-link'>
-            <div className='topic-card-box'>
-              <div className='topic-img-box'>
-                {topic.image_url ? (
-                  <img src={topic.image_url} alt={topic.title} className='topic-img' />
-                ) : (
-                  <p className='topic-img'>写真</p>
-                )}
-              </div>
-              <div className='topic-content'>
-                <div>
-                  <p className='topic-title'>{topic.title}</p>
+          <div key={topic.id} className='topic-card-wrapper'>
+            <Link href={`/topics/${topic.id}`} className='topic-card-link'>
+              <div className='topic-card-box'>
+                <div className='topic-img-box'>
+                  {topic.image_url ? (
+                    <img src={topic.image_url} alt={topic.title} className='topic-img' />
+                  ) : (
+                    <p className='topic-img'>写真</p>
+                  )}
                 </div>
-                <div className='comment-box'>
-                  <p className='comment-sum'>{topic.comment_count}コメント</p>
-                  <p className='seconds-ago'>{getTimeAgo(topic.created_at)}</p>
+                <div className='topic-content'>
+                  <div>
+                    <p className='topic-title'>{topic.title}</p>
+                  </div>
+                  <div className='comment-box'>
+                    <div className='comment-info'>
+                      <p className='comment-sum'>{topic.comment_count}コメント</p>
+                      <p className='seconds-ago'>{getTimeAgo(topic.created_at)}</p>
+                    </div>
+                    <div className='vote-section' onClick={(e) => e.preventDefault()}>
+                      <VoteButtons 
+                        topicId={topic.id}
+                        initialLikeCount={topic.like_count || 0}
+                        initialDislikeCount={topic.dislike_count || 0}
+                      />
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-          </Link>
+            </Link>
+          </div>
         );
       })}
     </>

@@ -24,7 +24,9 @@ export interface Database {
           user_id_hash: string | null
           view_count: number
           comment_count: number
-          status: string
+          like_count: number
+          dislike_count: number
+          status: 'pending' | 'approved' | 'rejected' | 'test'
           created_at: string
           updated_at: string
         }
@@ -39,7 +41,9 @@ export interface Database {
           user_id_hash?: string | null
           view_count?: number
           comment_count?: number
-          status?: string
+          like_count?: number
+          dislike_count?: number
+          status?: 'pending' | 'approved' | 'rejected' | 'test'
           created_at?: string
           updated_at?: string
         }
@@ -54,7 +58,9 @@ export interface Database {
           user_id_hash?: string | null
           view_count?: number
           comment_count?: number
-          status?: string
+          like_count?: number
+          dislike_count?: number
+          status?: 'pending' | 'approved' | 'rejected' | 'test'
           created_at?: string
           updated_at?: string
         }

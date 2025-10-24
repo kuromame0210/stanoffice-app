@@ -1,0 +1,83 @@
+.vote-buttons {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.vote-btn {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--text-gray);
+  font-size: 12px;
+  font-weight: 400;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  user-select: none;
+  min-width: 28px;
+  justify-content: center;
+}
+
+.vote-btn:hover:not(:disabled) {
+  background: var(--bg-light);
+  color: var(--text-black);
+}
+
+.vote-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.vote-btn.like:hover:not(:disabled) {
+  background: rgba(255, 165, 0, 0.1);
+  color: var(--primary-orange);
+}
+
+.vote-btn.dislike:hover:not(:disabled) {
+  background: rgba(100, 100, 100, 0.1);
+  color: var(--text-black);
+}
+
+.vote-btn.voted.like {
+  background: rgba(255, 165, 0, 0.15);
+  color: var(--primary-orange);
+  border-color: rgba(255, 165, 0, 0.3);
+}
+
+.vote-btn.voted.like::before {
+  content: "♥ ";
+}
+
+.vote-btn.like:not(.voted)::before {
+  content: "♡ ";
+}
+
+.vote-btn.dislike::before {
+  content: "× ";
+}
+
+.vote-btn.voted.dislike {
+  background: rgba(100, 100, 100, 0.15);
+  color: var(--text-black);
+  border-color: rgba(100, 100, 100, 0.3);
+}
+
+.vote-btn.voted:hover {
+  opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+  .vote-buttons {
+    gap: 2px;
+  }
+  
+  .vote-btn {
+    padding: 3px 6px;
+    font-size: 11px;
+    min-width: 24px;
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx supabase:*)",
+      "Bash(npm run dev:*)",
+      "Bash(supabase status:*)",
+      "Bash(ls:*)",
+      "Bash(npm install:*)",
+      "Bash(grep:*)",
+      "Bash(git add:*)"
+    ],
+    "deny": []
+  }
+}

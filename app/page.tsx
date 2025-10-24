@@ -17,10 +17,12 @@ export default async function StanTopPage() {
     <>
       <StanHeader />
       <div className='stan-background'>
-        <StanTopicCard>
-          <TopicTabs latestTopics={latestTopics} popularTopics={dailyPopularTopics} />
-        </StanTopicCard>
-        <div className='stan-side-box'>
+        <main className='stan-main-content'>
+          <StanTopicCard>
+            <TopicTabs latestTopics={latestTopics} popularTopics={dailyPopularTopics} />
+          </StanTopicCard>
+        </main>
+        <aside className='stan-side-box'>
           <div className='stan-popularlist-box'>
             <StanTopicCard popularList>
               <StanPopularTopic kindTitle='一週間の人気トピック' topics={weeklyPopularTopics} />
@@ -31,7 +33,7 @@ export default async function StanTopPage() {
               <StanPopularTopic kindTitle='前日の人気トピック' topics={dailyPopularTopics} />
             </StanTopicCard>
           </div>
-        </div>
+        </aside>
       </div>
     </>
   );

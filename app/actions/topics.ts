@@ -14,8 +14,10 @@ export async function getTopics(
   const { data, error } = await supabase
     .from('stanoffice_topics')
     .select('*')
-    .eq('status', 'approved')
+    // 開発時: approved + test を表示、本番時: approved のみ表示
+    .in('status', process.env.NODE_ENV === 'development' ? ['approved', 'test'] : ['approved'])
     .order(sortBy, { ascending: false })
+    .order('id', { ascending: false }) // 安定した並び順のためIDでも並び替え
     .limit(limit)
 
   if (error) {
@@ -43,7 +45,8 @@ export async function getTopicWithComments(id: number) {
       )
     `)
     .eq('id', id)
-    .eq('status', 'approved')
+    // 開発時: approved + test を表示、本番時: approved のみ表示
+    .in('status', process.env.NODE_ENV === 'development' ? ['approved', 'test'] : ['approved'])
     .single()
 
   if (error) {
@@ -76,7 +79,8 @@ export async function createTopic(formData: FormData) {
     is_anonymous: isAnonymous,
     show_id: showId,
     image_url: imageUrl,
-    status: 'pending', // 承認待ち
+    // 開発時はtestステータス、本番時はpendingステータス
+    status: process.env.NODE_ENV === 'development' ? 'test' : 'pending',
   }
 
   const { data, error } = await supabase
@@ -113,7 +117,8 @@ export async function getPopularTopics(
   const { data, error } = await supabase
     .from('stanoffice_topics')
     .select('*')
-    .eq('status', 'approved')
+    // 開発時: approved + test を表示、本番時: approved のみ表示
+    .in('status', process.env.NODE_ENV === 'development' ? ['approved', 'test'] : ['approved'])
     .gte('created_at', timeframeDate.toISOString())
     .order('comment_count', { ascending: false })
     .limit(limit)
@@ -134,7 +139,8 @@ export async function getTopicById(id: number): Promise<Topic | null> {
     .from('stanoffice_topics')
     .select('*')
     .eq('id', id)
-    .eq('status', 'approved')
+    // 開発時: approved + test を表示、本番時: approved のみ表示
+    .in('status', process.env.NODE_ENV === 'development' ? ['approved', 'test'] : ['approved'])
     .single()
 
   if (error) {
