@@ -79,8 +79,8 @@ export async function createTopic(formData: FormData) {
     is_anonymous: isAnonymous,
     show_id: showId,
     image_url: imageUrl,
-    // 開発時はtestステータス、本番時はpendingステータス
-    status: process.env.NODE_ENV === 'development' ? 'test' : 'pending',
+    // 開発時はtestステータス、本番時はapprovedステータス（即座に表示）
+    status: process.env.NODE_ENV === 'development' ? 'test' : 'approved',
   }
 
   const { data, error } = await supabase
